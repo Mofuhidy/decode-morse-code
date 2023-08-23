@@ -32,5 +32,12 @@ def decode_character(letter)
 end
 
 def decode_word(word)
-    word.split.map{|w| decode_character(w)}
+    word.split.map{ |w| decode_character(w)}.join('')
 end
+
+def decode(message)
+    @message = message.split('   ')
+    @message.map{ |w| decode_word(w)}.join(' ')
+end   
+
+puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
