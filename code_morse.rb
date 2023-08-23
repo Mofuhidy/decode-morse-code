@@ -25,19 +25,20 @@ CODE_MORSE = {
   '-..-' => 'X',
   '-.--' => 'Y',
   '--..' => 'Z'
-}
+}.freeze
 
 def decode_character(letter)
-    CODE_MORSE[letter]
+  CODE_MORSE[letter]
 end
 
 def decode_word(word)
-    word.split.map{ |w| decode_character(w)}.join('')
+  word.split.map { |w| decode_character(w) }.join
 end
 
 def decode(message)
-    @message = message.split('   ')
-    @message.map{ |w| decode_word(w)}.join(' ')
-end   
+  @message = message.split('   ')
+  @msg = @message.map { |w| decode_word(w) }
+  @msg.join(' ')
+end
 
 puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
