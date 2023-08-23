@@ -26,3 +26,11 @@ CODE_MORSE = {
   '-.--' => 'Y',
   '--..' => 'Z'
 }
+
+def decode_character(letter)
+    CODE_MORSE[letter]
+end
+
+def decode_word(word)
+    word.split.map{|w| decode_character(w)}
+end
